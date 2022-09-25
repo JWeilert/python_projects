@@ -1,0 +1,69 @@
+def max_num(x, y, z):
+    print(max([x, y, z]))
+    return max([x, y, z])
+
+
+max_num(124, 1244, 144)
+
+
+def multi_list(list):
+    if len(list) == 0:
+        return 0
+    first = list[0]
+    for i in list[1:]:
+        first = first * i
+    print(first)
+    return first
+
+
+multi_list([2, 3, 1])
+
+
+def rev_string(string):
+    txt = string[::-1]
+    print(txt)
+    return (txt)
+
+
+rev_string("This is a test")
+
+
+def num_within(x, y, z):
+    print(x > y and x < z)
+    return (x > y and x < z)
+
+
+num_within(1, 2, 6)
+
+
+# Had to look at solution.
+triangle = [[1], [1, 1]]
+
+
+def pascal(x):
+    if x < 1:
+        print("invalid number of rows")
+    elif x == 1:
+        print(triangle[0])
+    else:
+        row_number = 2
+        while len(triangle) < x:
+            row = []
+            row_prev = triangle[row_number - 1]
+            length = len(row_prev)+1
+            for i in range(length):
+                if i == 0:
+                    row.append(1)
+                elif i > 0 and i < length-1:
+                    row.append(triangle[row_number-1]
+                               [i-1]+triangle[row_number-1][i])
+                else:
+                    row.append(1)
+            triangle.append(row)
+            row_number += 1
+        for row in triangle:
+            print(row)
+
+
+pascal(2)
+pascal(5)
